@@ -5,13 +5,14 @@ Repository to train [HeavyEdge-Classify](https://pypi.org/project/heavyedge-clas
 ## Setup
 
 ```
-pip install -r requirements.txt
+pip install gdown
 gdown --fuzzy [google drive link] -O dataset.tar
 ```
 
 ## Preprocessing
 
 ```
+pip install -r requirements.txt
 mkdir -p _data
 tar -xf dataset.tar -C _data
 make _temp/MeanProfiles.h5
