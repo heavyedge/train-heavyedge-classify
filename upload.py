@@ -4,8 +4,8 @@ from huggingface_hub import HfApi
 
 api = HfApi(token=os.getenv("HUGGINGFACE_TOKEN"))
 
-REPO = "jeesoo9595/heavyedge-classify-v0"
-MODEL_VERSION = "v0.0.4"
+REPO = "jeesoo9595/heavyedge-classify-v1"
+MODEL_VERSION = "v1.0.0"
 
 api.create_repo(
     repo_id=REPO,
