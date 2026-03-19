@@ -17,4 +17,13 @@ tar -xzf dataset.tar.gz -C _data
 ```
 pip install gdown
 gdown --fuzzy [google drive link] -O labels.tar
+tar -xf labels.tar -C _data
+```
+
+## Train & test
+
+```
+pip install -r requirements.txt
+make model/classify-model.pkl
+make test
 ```

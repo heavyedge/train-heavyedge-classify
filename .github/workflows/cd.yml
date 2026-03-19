@@ -27,5 +27,14 @@ jobs:
         run: |
           pip install gdown
           gdown --fuzzy $GOOGLE_DRIVE_LINK -O labels.tar
+          tar -xf labels.tar -C _data
         env:
           GOOGLE_DRIVE_LINK: ${{ secrets.GOOGLE_DRIVE_LINK }}
+
+      - name: Train model
+        run: |
+          pip install -r requirements.txt
+          make model/classify-model.pkl
+
+      - name: Test model
+        run: make test
