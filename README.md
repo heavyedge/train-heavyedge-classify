@@ -27,3 +27,21 @@ pip install -r requirements.txt
 make model/classify-model.pkl
 make test
 ```
+
+## Versioning policy
+
+The HeavyEdge-Classify model follows semantic versioning.
+
+**Major version**
+
+- Updated if model architecture is changed.
+- Each major version has dedicated repository, e.g., `heavyedge-classify-v1`, `heavyedge-classify-v2`, and so on.
+
+**Minor version**
+
+- Updated if model is re-trained, possibly with new data, but under same architecture.
+
+**Patch version**
+
+- Bug fix.
+- Metadata change.
