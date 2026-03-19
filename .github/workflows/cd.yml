@@ -17,8 +17,15 @@ jobs:
         run: |
           curl -LsSf https://hf.co/cli/install.sh | bash
           hf auth login --token $HUGGINGFACE_TOKEN
-          hf download jeesoo9595/heavyedge-dataset-v1 --repo-type dataset --revision v1.0.0 --include "dataset.tar.gz"
+          hf download jeesoo9595/heavyedge-dataset-v1 --repo-type dataset --revision v1.0.0 --include "dataset.tar.gz" --local-dir .
           mkdir -p _data
           tar -xzf dataset.tar.gz -C _data
         env:
           HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
+
+      - name: Download label data
+        run: |
+          pip install gdown
+          gdown --fuzzy $GOOGLE_DRIVE_LINK -O labels.tar
+        env:
+          GOOGLE_DRIVE_LINK: ${{ secrets.GOOGLE_DRIVE_LINK }}
