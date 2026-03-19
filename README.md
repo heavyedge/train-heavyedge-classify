@@ -1,6 +1,6 @@
 # Train HeavyEdge-Classify
 
-Repository to train [HeavyEdge-Classify](https://pypi.org/project/heavyedge-classify/) model and upload to HuggingFace.
+Repository to train and distribute [HeavyEdge-Classify](https://pypi.org/project/heavyedge-classify/) model.
 
 ## Download profile data
 
@@ -28,18 +28,25 @@ make model/classify-model.pkl
 make test
 ```
 
+## Upload
+
+```
+pip install huggingface_hub
+python3 upload.py
+```
+
 ## Versioning policy
 
 The HeavyEdge-Classify model follows semantic versioning.
 
 **Major version**
 
-- Updated if model architecture is changed.
+- Updated if model API is changed.
 - Each major version has dedicated repository, e.g., `heavyedge-classify-v1`, `heavyedge-classify-v2`, and so on.
 
 **Minor version**
 
-- Updated if model is re-trained, possibly with new data, but under same architecture.
+- Updated if model is re-trained without API change.
 
 **Patch version**
 
