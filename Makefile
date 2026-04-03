@@ -2,7 +2,7 @@
 
 DATASETS := $(shell ls -d _data/dataset* | sed -E 's|^[^/]*/||')
 
-.PHONY: all test test-hardlabel test-softlabel
+.PHONY: all test test-hardlabel test-softlabel clean
 
 all: model/classify-model.pkl test
 
@@ -13,6 +13,9 @@ test-hardlabel: _temp/hardlabel-pred.csv _temp/labels.csv
 
 test-softlabel: _temp/softlabel-pred.csv _temp/labels.csv
 	python3 -c "import pandas as pd; assert pd.read_csv('$(word 1,$^)').shape[0] == pd.read_csv('$(word 2,$^)').shape[0]"
+
+clean:
+	rm -rf _temp model/classify-model.pkl
 
 _temp/MeanProfiles.h5: $(foreach dataset, $(DATASETS), _data/$(dataset)/MeanProfiles.h5)
 	mkdir -p $(@D)
